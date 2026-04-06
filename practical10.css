@@ -1,0 +1,85 @@
+body {
+    background: linear-gradient(to bottom, #ffffff, #58b7d11a);
+    font-family: 'Poppins', Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    text-decoration: underline;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #3498db; }
+    to { text-shadow: 0 0 20px #2980b9; }
+}
+
+.gallery {
+    column-count: 4;
+    column-gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.photo {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    border: 5px solid white;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.4s, box-shadow 0.4s;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.photo:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.photo:hover img {
+    transform: scale(1.1);
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.photo:hover .text {
+    opacity: 1;
+}
+
+.text i {
+    margin-right: 5px;
+    color: red;
+}
+
+@media screen and (max-width: 1000px) {
+    .gallery { column-count: 3; }
+}
+
+@media screen and (max-width: 700px) {
+    .gallery { column-count: 2; }
+}
+
+@media screen and (max-width: 500px) {
+    .gallery { column-count: 1; }
+}
