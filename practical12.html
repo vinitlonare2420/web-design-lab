@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Showcase - Practical 12</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Custom styles to enhance the aesthetic */
+        .carousel-item {
+            height: 60vh;
+            min-height: 300px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+        }
+        .text-info {
+            color: #0dcaf0 !important;
+        }
+        /* Custom image placeholders to ensure they work without external dependency if down */
+        .bg-img-1 { background-image: url('https://picsum.photos/id/1015/1920/1080'); }
+        .bg-img-2 { background-image: url('https://picsum.photos/id/1016/1920/1080'); }
+        .bg-img-3 { background-image: url('https://picsum.photos/id/1018/1920/1080'); }
+    </style>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- 1. Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">BootstrapSite</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="nav-link btn btn-primary text-white px-4 py-2 fw-semibold rounded-pill" href="#contact">Contact Us <!-- 4. Button inside Navbar --></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Carousel -->
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active bg-img-1">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-4 mb-4 shadow">
+                    <h2 class="display-4 fw-bold text-white">Scenic Landscapes</h2>
+                    <p class="lead text-light">Experience the beauty of nature through our customized tours.</p>
+                    <a href="#services" class="btn btn-info btn-lg mt-2 text-white">Explore More</a>
+                </div>
+            </div>
+            <div class="carousel-item bg-img-2">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-4 mb-4 shadow">
+                    <h2 class="display-4 fw-bold text-white">Mountain Exploring</h2>
+                    <p class="lead text-light">Reach the peaks and enjoy the breathtaking views.</p>
+                    <a href="#services" class="btn btn-info btn-lg mt-2 text-white">Explore More</a>
+                </div>
+            </div>
+            <div class="carousel-item bg-img-3">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-4 mb-4 shadow">
+                    <h2 class="display-4 fw-bold text-white">Forest Retreats</h2>
+                    <p class="lead text-light">Relax in the tranquility of deep, lush forests.</p>
+                    <a href="#services" class="btn btn-info btn-lg mt-2 text-white">Explore More</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container my-5 flex-grow-1" id="services">
+        <div class="row text-center mb-5">
+            <div class="col">
+                <h2 class="display-5 fw-bold mt-4">Our Services</h2>
+                <div class="mx-auto mt-2 mb-4" style="width: 80px; height: 5px; background-color: #0d6efd; border-radius: 5px;"></div>
+                <p class="lead text-muted">A showcase of the Bootstrap Grid System, Cards, and Buttons.</p>
+            </div>
+        </div>
+        
+        <!-- 5. Grid System & 3. Cards -->
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Grid Column 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow rounded-4 overflow-hidden border-0">
+                    <img src="https://picsum.photos/id/20/400/300" class="card-img-top" alt="Web Development" style="height: 250px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="card-title fw-bold mb-3">Web Development</h4>
+                        <p class="card-text text-muted mb-4">We build modern, responsive, and performance-optimized websites using the latest web technologies.</p>
+                        <!-- 4. Buttons -->
+                        <a href="#" class="btn btn-primary mt-auto py-2 fw-semibold rounded-3 shadow-sm">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Column 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow rounded-4 overflow-hidden border-0">
+                    <img src="https://picsum.photos/id/119/400/300" class="card-img-top" alt="UI/UX Design" style="height: 250px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="card-title fw-bold mb-3">UI/UX Design</h4>
+                        <p class="card-text text-muted mb-4">Crafting beautiful user interfaces that provide seamless digital experiences for your users.</p>
+                        <!-- 4. Buttons -->
+                        <a href="#" class="btn btn-outline-primary mt-auto py-2 fw-semibold rounded-3 shadow-sm">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Column 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow rounded-4 overflow-hidden border-0">
+                    <img src="https://picsum.photos/id/370/400/300" class="card-img-top" alt="Brand Strategy" style="height: 250px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="card-title fw-bold mb-3">Brand Strategy</h4>
+                        <p class="card-text text-muted mb-4">Boost your brand's presence and engage more deeply with your target audience.</p>
+                        <!-- 4. Buttons -->
+                        <a href="#" class="btn btn-success mt-auto py-2 fw-semibold rounded-3 shadow-sm">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 6. Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3 mt-auto shadow-lg" id="contact">
+        <div class="container text-center text-md-start">
+            <div class="row align-items-start mb-4">
+                
+                <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+                    <h4 class="text-uppercase mb-4 fw-bold text-info">BootstrapSite</h4>
+                    <p class="text-light opacity-75 lh-lg">
+                        This footer uses the grid system to organize content properly on all devices. 
+                        We aim to provide beautiful and responsive components perfect for your next big project.
+                    </p>
+                </div>
+                
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h5 class="text-uppercase mb-4 fw-bold text-info">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none dropdown-item">Home</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white text-decoration-none dropdown-item">Services</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none dropdown-item">Pricing</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white text-decoration-none dropdown-item">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+                    <h5 class="text-uppercase mb-4 fw-bold text-info">Contact Info</h5>
+                    <ul class="list-unstyled text-light opacity-75">
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-md-start">
+                            <span class="me-3 fs-5">📍</span> San Francisco, CA 94103
+                        </li>
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-md-start">
+                            <span class="me-3 fs-5">📧</span> info@bootstrapsite.com
+                        </li>
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-md-start">
+                            <span class="me-3 fs-5">📞</span> +1 (555) 123-4567
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <hr class="mb-4 border-light opacity-25">
+            
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-light opacity-75 pb-2">
+                        © 2026 Copyright: 
+                        <a href="#" class="text-white text-decoration-none fw-bold ms-1">BootstrapSite.com</a>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
