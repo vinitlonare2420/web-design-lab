@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 APIs Demo</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Drag & Drop */
+        #dragBox {
+            width: 100px;
+            height: 100px;
+            background: coral;
+            margin: 20px auto;
+            line-height: 100px;
+            color: white;
+            cursor: grab;
+        }
+
+        #dropArea {
+            width: 200px;
+            height: 150px;
+            border: 2px dashed black;
+            margin: 20px auto;
+            line-height: 150px;
+        }
+
+        /* Input */
+        input {
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML5 APIs Demo</h1>
+
+    <!-- Drag and Drop -->
+    <h2>Drag & Drop</h2>
+    <div id="dragBox" draggable="true">Drag Me</div>
+    <div id="dropArea">Drop Here</div>
+
+    <!-- Geolocation -->
+    <h2>Geolocation</h2>
+    <button onclick="getLocation()">Get Location</button>
+    <p id="location"></p>
+
+    <!-- Web Storage -->
+    <h2>Web Storage</h2>
+    <input type="text" id="name" placeholder="Enter your name">
+    <br>
+    <button onclick="saveData()">Save</button>
+    <button onclick="loadData()">Load</button>
+    <p id="output"></p>
+
+    <script>
+        /* Drag & Drop */
+        const dragBox = document.getElementById("dragBox");
+        const dropArea = document.getElementById("dropArea");
+
+        dragBox.addEventListener("dragstart", function(e) {
+            e.dataTransfer.setData("text", "dragBox");
+        });
+
+        dropArea.addEventListener("dragover", function(e) {
+            e.preventDefault();
+        });
+
+        dropArea.addEventListener("drop", function(e) {
+            e.preventDefault();
+            const data = e.dataTransfer.getData("text");
+            const element = document.getElementById(data);
+            dropArea.appendChild(element);
+            dropArea.innerHTML = "Dropped!";
+        });
+
+        /* Geolocation */
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("location").innerHTML = "Geolocation not supported";
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById("location").innerHTML =
+                "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+
+        /* Web Storage */
+        function saveData() {
+            const name = document.getElementById("name").value;
+            localStorage.setItem("username", name);
+            alert("Data Saved!");
+        }
+
+        function loadData() {
+            const name = localStorage.getItem("username");
+            document.getElementById("output").innerHTML = "Stored Name: " + name;
+        }
+    </script>
+
+</body>
+</html>
